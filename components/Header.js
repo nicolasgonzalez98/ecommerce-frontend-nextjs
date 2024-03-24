@@ -1,28 +1,58 @@
 import Link from "next/link";
 import styled from "styled-components";
+import Center from "./Center";
 
 const StyledHeader = styled.header`
     background-color: #222;
+    width:100%;
 `
 
 const Logo = styled(Link)`
+    color:#fff;
+    text-decoration:none;
+`
+
+const Wrapper = styled.div`
+    display:flex;
+    justify-content:space-between;
+    padding:20px 0;
+
     
 `
+
+const StyledNav = styled.nav`
+    display:flex;
+    gap: 15px;
+`
+
+const NavLinks = styled(Link)`
+    color:#aaa;
+    text-decoration:none;
+    
+`
+
+
+
+
 
 export default function Header(){
     return (
         <StyledHeader>
-            <Link href={"/"}>
-                Ecommerce
-            </Link>
+            <Center>
+                <Wrapper>
+                    <Logo href={"/"}>
+                        Ecommerce
+                    </Logo>
 
-            <nav>
-                <Link href={"/"}>Home</Link>
-                <Link href={"/products"}>All Products</Link>
-                <Link href={"/categories"}>Categories</Link>
-                <Link href={"/account"}>Account</Link>
-                <Link href={"/cart"}>Cart (0)</Link>
-            </nav>
+                    <StyledNav>
+                        <NavLinks href={"/products"}>All Products</NavLinks>
+                        <NavLinks href={"/categories"}>Categories</NavLinks>
+                        <NavLinks href={"/account"}>Account</NavLinks>
+                        <NavLinks href={"/cart"}>Cart (0)</NavLinks>
+                        <NavLinks href={"/"}>Home</NavLinks>
+                    </StyledNav>
+                </Wrapper>
+            </Center>
         </StyledHeader>
     )
 }
